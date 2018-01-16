@@ -1,5 +1,5 @@
 """
-Copyright (c) 2016-2017 Fabian Affolter <fabian@affolter-engineering.ch>
+Copyright (c) 2016-2018 Fabian Affolter <fabian@affolter-engineering.ch>
 
 Licensed under MIT. All rights reserved.
 """
@@ -24,3 +24,4 @@ def main():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
+
