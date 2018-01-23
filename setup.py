@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
+"""
+Copyright (c) 2017-2018 Fabian Affolter <fabian@affolter-engineering.ch>
+
+Licensed under MIT. All rights reserved.
+"""
 import os
 import sys
-from codecs import open
 
 try:
     from setuptools import setup
@@ -20,7 +24,7 @@ if sys.argv[-1] == 'publish':
 
 setup(
     name='netdata',
-    version='0.0.1',
+    version='0.0.2',
     description='Python API for interacting with Netdata.',
     long_description=long_description,
     url='https://github.com/fabaff/python-netdata',
