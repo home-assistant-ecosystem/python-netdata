@@ -10,11 +10,11 @@ import json
 from netdata import Netdata
 
 
-@asyncio.coroutine
-def main():
+async def main():
+    """Get the data from a Netdata instance."""
     with aiohttp.ClientSession() as session:
         data = Netdata('localhost', 'system.cpu', loop, session)
-        yield from data.async_get_data()
+        await data.async_get_data()
 
         print(json.dumps(data.values, indent=4, sort_keys=True))
 
