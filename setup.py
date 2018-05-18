@@ -24,7 +24,7 @@ if sys.argv[-1] == 'publish':
 
 setup(
     name='netdata',
-    version='0.0.2',
+    version='0.0.3',
     description='Python API for interacting with Netdata.',
     long_description=long_description,
     url='https://github.com/fabaff/python-netdata',
@@ -43,7 +43,7 @@ setup(
         'Operating System :: MacOS :: MacOS X',
         'Operating System :: Microsoft :: Windows',
         'Operating System :: POSIX',
-        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Topic :: Utilities',
     ],
 )
