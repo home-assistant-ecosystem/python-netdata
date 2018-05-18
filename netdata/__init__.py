@@ -31,19 +31,18 @@ class Netdata(object):
         self.resource = resource
         self.values = None
 
-    @asyncio.coroutine
-    def async_get_data(self):
+    async def async_get_data(self):
         url = _RESOURCE.format(
             host=self.host, port=self.port, api=API_VERSION,
             resource=self.resource, realtime=_REALTIME)
 
         try:
             with async_timeout.timeout(5, loop=self._loop):
-                response = yield from self._session.get(url)
+                response = await self._session.get(url)
 
             _LOGGER.debug(
                 "Response from Netdata: %s", response.status)
-            data = yield from response.json()
+            data = await response.json()
             _LOGGER.debug(data)
             self.values = {k: v for k, v in zip(
                 data['labels'], data['data'][0])}
