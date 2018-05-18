@@ -20,10 +20,10 @@ API_VERSION = 1
 
 
 class Netdata(object):
-    """A class for handling connections with Netdata instance."""
+    """A class for handling connections with a Netdata instance."""
 
-    def __init__(self, host, resource, loop, session, port='19999'):
-        """Initialize the connection."""
+    def __init__(self, host, resource, loop, session, port=19999):
+        """Initialize the connection to the Netdata instance."""
         self._loop = loop
         self._session = session
         self.host = host
