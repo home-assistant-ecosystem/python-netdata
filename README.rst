@@ -6,6 +6,7 @@ are the ``data``, the ``allmetrics`` and the ``alarms`` endpoint supported.
 
 Installation
 ------------
+
 The module is available from the `Python Package Index <https://pypi.python.org/pypi>`_.
 
 .. code:: bash
@@ -19,6 +20,7 @@ The file ``example.py`` contains an example about how to use this module.
 
 Development
 -----------
+
 For development is recommended to use a ``venv``.
 
 .. code:: bash
@@ -29,4 +31,5 @@ For development is recommended to use a ``venv``.
 
 License
 -------
+
 ``python-netdata`` is licensed under MIT, for more details check LICENSE.
