@@ -4,6 +4,8 @@ python-netdata
 Python API for interacting with `Netdata <https://my-netdata.io/>`_. Currently
 are the ``data``, the ``allmetrics`` and the ``alarms`` endpoint supported.
 
+This module is not official, developed, supported or endorsed by netdata.
+
 Installation
 ------------
 
