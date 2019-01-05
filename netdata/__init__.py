@@ -1,8 +1,4 @@
-"""
-Copyright (c) 2016-2018 Fabian Affolter <fabian@affolter-engineering.ch>
-
-Licensed under MIT. All rights reserved.
-"""
+"""Client to retrieve data from a Netdata instance."""
 import asyncio
 import logging
 import socket

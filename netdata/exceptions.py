@@ -1,8 +1,4 @@
-"""
-Copyright (c) 2016-2018 Fabian Affolter <fabian@affolter-engineering.ch>
-
-Licensed under MIT. All rights reserved.
-"""
+"""Execptions for the Python Netdata client."""
 
 
 class NetdataError(Exception):
