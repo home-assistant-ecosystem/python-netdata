@@ -1,8 +1,4 @@
-"""
-Copyright (c) 2016-2018 Fabian Affolter <fabian@affolter-engineering.ch>
-
-Licensed under MIT. All rights reserved.
-"""
+"""Sample code to interact with a Netdata instance."""
 import asyncio
 import aiohttp
 import json
@@ -39,4 +35,3 @@ async def main():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
-
