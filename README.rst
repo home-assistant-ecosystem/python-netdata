@@ -15,7 +15,7 @@ The module is available from the `Python Package Index <https://pypi.python.org/
 
     $ pip3 install netdata
 
-On a Fedora-based system or on a CentOS/RHEL machine with has EPEL enabled.
+On a Fedora-based system or on a CentOS/RHEL machine which has EPEL enabled.
 
 .. code:: bash
 
