@@ -20,11 +20,11 @@ if sys.argv[-1] == 'publish':
 
 setup(
     name='netdata',
-    version='0.1.2',
+    version='0.2.0',
     description='Python API for interacting with Netdata.',
     long_description=long_description,
-    url='https://github.com/fabaff/python-netdata',
-    download_url='https://github.com/fabaff/python-netdata/releases',
+    url='https://github.com/home-assistant-ecosystem/python-netdata',
+    download_url='https://github.com/home-assistant-ecosystem/python-netdata/releases',
     author='Fabian Affolter',
     author_email='fabian@affolter-engineering.ch',
     license='MIT',
