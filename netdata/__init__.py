@@ -22,7 +22,7 @@ API_VERSION = 1
 class Netdata(object):
     """A class for handling connections with a Netdata instance."""
 
-    def __init__(self, host, loop, session, port=19999, data=None):
+    def __init__(self, host, loop, session, port=19999):
         """Initialize the connection to the Netdata instance."""
         self._loop = loop
         self._session = session
@@ -30,15 +30,10 @@ class Netdata(object):
         self.port = port
         self.values = self.alarms = self.metrics = None
         self.base_url = _INSTANCE.format(host=host, port=port, api=API_VERSION)
-        if data is None:
-            self.endpoint = _ALL_METRIC_ENDPOINT
-        if data == "alarms":
-            self.endpoint = _ALARMS_ENDPOINT
-        if data == "data":
-            self.endpoint = _DATA_ENDPOINT
 
     async def get_data(self, resource):
         """Get detail for a resource from the data endpoint."""
+        self.endpoint = _DATA_ENDPOINT
         url = "{}{}".format(self.base_url, self.endpoint.format(resource=resource))
 
         try:
@@ -56,6 +51,7 @@ class Netdata(object):
 
     async def get_alarms(self):
         """Get alarms for a Netdata instance."""
+        self.endpoint = _ALARMS_ENDPOINT
         url = "{}{}".format(self.base_url, self.endpoint)
 
         try:
@@ -73,6 +69,7 @@ class Netdata(object):
 
     async def get_allmetrics(self):
         """Get all available metrics from a Netdata instance."""
+        self.endpoint = _ALL_METRIC_ENDPOINT
         url = "{}{}".format(self.base_url, self.endpoint)
 
         try:
