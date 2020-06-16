@@ -5,11 +5,11 @@ import socket
 
 import aiohttp
 import async_timeout
+from yarl import URL
 
 from . import exceptions
 
 _LOGGER = logging.getLogger(__name__)
-_INSTANCE = "http://{host}:{port}/api/v{api}/"
 _DATA_ENDPOINT = "data?chart={resource}&before=0&after=-1&options=seconds"
 _ALARMS_ENDPOINT = "alarms?all&format=json"
 _ALL_METRIC_ENDPOINT = (
@@ -22,14 +22,18 @@ API_VERSION = 1
 class Netdata(object):
     """A class for handling connections with a Netdata instance."""
 
-    def __init__(self, host, loop, session, port=19999):
+    def __init__(self, host, loop, session, port=19999, path=None):
         """Initialize the connection to the Netdata instance."""
         self._loop = loop
         self._session = session
         self.host = host
         self.port = port
         self.values = self.alarms = self.metrics = None
-        self.base_url = _INSTANCE.format(host=host, port=port, api=API_VERSION)
+        if path is None:
+            self.base_url = URL.build(scheme="http", host=host, port=port, path=f"/api/v{API_VERSION}/")
+        else:
+            self.base_url = URL.build(scheme="http", host=host, port=port, path=path)
+
 
     async def get_data(self, resource):
         """Get detail for a resource from the data endpoint."""
