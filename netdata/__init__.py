@@ -63,7 +63,7 @@ class Netdata(object):
                 response = await self._session.get(url)
 
             _LOGGER.debug("Response from Netdata: %s", response.status)
-            data = await response.text()
+            data = await response.json()
             _LOGGER.debug(data)
             self.alarms = data
 
