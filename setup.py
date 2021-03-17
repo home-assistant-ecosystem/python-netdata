@@ -15,7 +15,7 @@ with open(os.path.join(here, "README.rst"), encoding="utf-8") as desc:
 
 setup(
     name="netdata",
-    version="0.2.0",
+    version="0.2.1",
     description="Python API for interacting with Netdata.",
     long_description=long_description,
     url="https://github.com/home-assistant-ecosystem/python-netdata",
