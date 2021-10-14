@@ -23,7 +23,10 @@ setup(
     author="Fabian Affolter",
     author_email="fabian@affolter-engineering.ch",
     license="MIT",
-    install_requires=["aiohttp>=3.7.4,<4", "async_timeout<4"],
+    install_requires=[
+        "aiohttp>=3.7.4,<4",
+        "async_timeout<4",
+    ],
     packages=["netdata"],
     python_requires=">=3.8",
     zip_safe=True,
