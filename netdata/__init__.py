@@ -22,7 +22,7 @@ API_VERSION = 1
 class Netdata(object):
     """A class for handling connections with a Netdata instance."""
 
-    def __init__(self, host, loop, session, port=19999, path=None):
+    def __init__(self, host, loop, session, scheme='http', port=19999, path=None):
         """Initialize the connection to the Netdata instance."""
         self._loop = loop
         self._session = session
@@ -30,9 +30,9 @@ class Netdata(object):
         self.port = port
         self.values = self.alarms = self.metrics = None
         if path is None:
-            self.base_url = URL.build(scheme="http", host=host, port=port, path=f"/api/v{API_VERSION}/")
+            self.base_url = URL.build(scheme, host=host, port=port, path=f"/api/v{API_VERSION}/")
         else:
-            self.base_url = URL.build(scheme="http", host=host, port=port, path=path)
+            self.base_url = URL.build(scheme, host=host, port=port, path=path)
 
 
     async def get_data(self, resource):
