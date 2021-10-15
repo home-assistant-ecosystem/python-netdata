@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "netdata"
+version = "1.0.0"
+description = "Python API for interacting with Netdata"
+authors = ["Fabian Affolter <mail@fabian-affolter.ch>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+httpx = "^0.19.0"
+yarl = "^1.7.0"
+
+[tool.poetry.dev-dependencies]
+black = "^21.9b0"
+pytest = "^6.2.5"
+pytest-httpx = "^0.13.0"
+pytest-asyncio = "^0.15.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
