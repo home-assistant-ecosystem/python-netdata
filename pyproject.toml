@@ -4,6 +4,23 @@ version = "1.0.1"
 description = "Python API for interacting with Netdata"
 authors = ["Fabian Affolter <mail@fabian-affolter.ch>"]
 license = "MIT"
+homepage = "https://github.com/home-assistant-ecosystem/python-netdata"
+repository = "https://github.com/home-assistant-ecosystem/python-netdata"
+readme = "README.rst"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Topic :: Utilities",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Home Automation"
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
