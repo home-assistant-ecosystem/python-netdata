@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "netdata"
-version = "1.0.0"
+version = "1.0.1"
 description = "Python API for interacting with Netdata"
 authors = ["Fabian Affolter <mail@fabian-affolter.ch>"]
 license = "MIT"
