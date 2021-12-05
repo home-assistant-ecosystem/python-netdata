@@ -26,7 +26,7 @@ be present in the ``unstable`` channel.
 
 .. code:: bash
 
-    $ nix-env -iA nixos.python39Packages.netdata
+    $ nix-env -iA nixos.python3Packages.netdata
 
 Usage
 -----
