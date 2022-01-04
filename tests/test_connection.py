@@ -10,10 +10,10 @@ import httpx
 async def test_timeout(httpx_mock: HTTPXMock):
     """Test if the connection is hitting the timeout."""
 
-    def raise_timeout(request, extensions: dict):
+    def raise_timeout(request):
         """Set the timeout for the requests."""
         raise httpx.ReadTimeout(
-            f"Unable to read within {extensions['timeout']}", request=request
+            f"Unable to read within {request.extensions['timeout']}", request=request
         )
 
     httpx_mock.add_callback(raise_timeout)
