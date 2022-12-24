@@ -28,7 +28,7 @@ httpx = ">=0.23,<1"
 yarl = "^1.8.0"
 
 [tool.poetry.dev-dependencies]
-black = "^22.8"
+black = "^22.12"
 pytest = "^6.2.5"
 pytest-httpx = ">0.15,<1"
 pytest-asyncio = "^0.15.1"
