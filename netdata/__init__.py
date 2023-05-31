@@ -22,7 +22,7 @@ API_VERSION = 1
 class Netdata(object):
     """A class for handling connections with a Netdata instance."""
 
-    def __init__(self, host, loop, session, scheme='http', port=19999, path=None):
+    def __init__(self, host, loop, session, scheme="http", port=19999, path=None):
         """Initialize the connection to the Netdata instance."""
         self._loop = loop
         self._session = session
