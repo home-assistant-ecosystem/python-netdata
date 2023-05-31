@@ -21,11 +21,12 @@ API_VERSION = 1
 class Netdata(object):
     """A class for handling connections with a Netdata instance."""
 
-    def __init__(self, host, port=19999, tls=None, path=None):
+    def __init__(self, host, port=19999, tls=None, path=None, timeout=5.0):
         """Initialize the connection to the Netdata instance."""
         self.host = host
         self.port = port
         self.values = self.alarms = self.metrics = None
+        self.timeout = timeout
 
         self.scheme = "http" if tls is None or not False else "https"
 
@@ -42,7 +43,7 @@ class Netdata(object):
         """Execute a request to a data endpoint."""
         try:
             async with httpx.AsyncClient() as client:
-                response = await client.get(str(url))
+                response = await client.get(str(url), timeout = self.timeout)
         except httpx.ConnectError:
             raise exceptions.NetdataConnectionError(
                 f"Connection to {self.scheme}://{self.host}:{self.port} failed"
