@@ -44,7 +44,9 @@ class Netdata(object):
         try:
             async with httpx.AsyncClient() as client:
                 response = await client.get(str(url), timeout = self.timeout)
-        except httpx.ConnectError:
+        except httpx.TimeoutException:
+            raise
+        except httpx.TransportError:
             raise exceptions.NetdataConnectionError(
                 f"Connection to {self.scheme}://{self.host}:{self.port} failed"
             )
