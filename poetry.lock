@@ -23,35 +23,6 @@ test = ["anyio[trio]", "coverage[toml] (>=7)", "exceptiongroup (>=1.2.0)", "hypo
 trio = ["trio (>=0.23)"]
 
 [[package]]
-name = "atomicwrites"
-version = "1.4.1"
-description = "Atomic file writes."
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-files = [
-    {file = "atomicwrites-1.4.1.tar.gz", hash = "sha256:81b2c9071a49367a7f770170e5eec8cb66567cfbbc8c73d20ce5ca4a8d71cf11"},
-]
-
-[[package]]
-name = "attrs"
-version = "23.2.0"
-description = "Classes Without Boilerplate"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "attrs-23.2.0-py3-none-any.whl", hash = "sha256:99b87a485a5820b23b879f04c2305b44b951b502fd64be915879d77a7e8fc6f1"},
-    {file = "attrs-23.2.0.tar.gz", hash = "sha256:935dc3b529c262f6cf76e50877d35a4bd3c1de194fd41f47a2b7ae8f19971f30"},
-]
-
-[package.extras]
-cov = ["attrs[tests]", "coverage[toml] (>=5.3)"]
-dev = ["attrs[tests]", "pre-commit"]
-docs = ["furo", "myst-parser", "sphinx", "sphinx-notfound-page", "sphinxcontrib-towncrier", "towncrier", "zope-interface"]
-tests = ["attrs[tests-no-zope]", "zope-interface"]
-tests-mypy = ["mypy (>=1.6)", "pytest-mypy-plugins"]
-tests-no-zope = ["attrs[tests-mypy]", "cloudpickle", "hypothesis", "pympler", "pytest (>=4.3.0)", "pytest-xdist[psutil]"]
-
-[[package]]
 name = "black"
 version = "24.3.0"
 description = "The uncompromising code formatter."
@@ -160,39 +131,40 @@ files = [
 
 [[package]]
 name = "httpcore"
-version = "0.17.3"
+version = "1.0.5"
 description = "A minimal low-level HTTP client."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "httpcore-0.17.3-py3-none-any.whl", hash = "sha256:c2789b767ddddfa2a5782e3199b2b7f6894540b17b16ec26b2c4d8e103510b87"},
-    {file = "httpcore-0.17.3.tar.gz", hash = "sha256:a6f30213335e34c1ade7be6ec7c47f19f50c56db36abef1a9dfa3815b1cb3888"},
+    {file = "httpcore-1.0.5-py3-none-any.whl", hash = "sha256:421f18bac248b25d310f3cacd198d55b8e6125c107797b609ff9b7a6ba7991b5"},
+    {file = "httpcore-1.0.5.tar.gz", hash = "sha256:34a38e2f9291467ee3b44e89dd52615370e152954ba21721378a87b2960f7a61"},
 ]
 
 [package.dependencies]
-anyio = ">=3.0,<5.0"
 certifi = "*"
 h11 = ">=0.13,<0.15"
-sniffio = "==1.*"
 
 [package.extras]
+asyncio = ["anyio (>=4.0,<5.0)"]
 http2 = ["h2 (>=3,<5)"]
 socks = ["socksio (==1.*)"]
+trio = ["trio (>=0.22.0,<0.26.0)"]
 
 [[package]]
 name = "httpx"
-version = "0.24.1"
+version = "0.27.0"
 description = "The next generation HTTP client."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "httpx-0.24.1-py3-none-any.whl", hash = "sha256:06781eb9ac53cde990577af654bd990a4949de37a28bdb4a230d434f3a30b9bd"},
-    {file = "httpx-0.24.1.tar.gz", hash = "sha256:5853a43053df830c20f8110c5e69fe44d035d850b2dfe795e196f00fdb774bdd"},
+    {file = "httpx-0.27.0-py3-none-any.whl", hash = "sha256:71d5465162c13681bff01ad59b2cc68dd838ea1f10e51574bac27103f00c91a5"},
+    {file = "httpx-0.27.0.tar.gz", hash = "sha256:a0cb88a46f32dc874e04ee956e4c2764aba2aa228f650b06788ba6bda2962ab5"},
 ]
 
 [package.dependencies]
+anyio = "*"
 certifi = "*"
-httpcore = ">=0.15.0,<0.18.0"
+httpcore = "==1.*"
 idna = "*"
 sniffio = "*"
 
@@ -387,39 +359,26 @@ dev = ["pre-commit", "tox"]
 testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
-name = "py"
-version = "1.11.0"
-description = "library with cross-python path, ini-parsing, io, code, log facilities"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-files = [
-    {file = "py-1.11.0-py2.py3-none-any.whl", hash = "sha256:607c53218732647dff4acdfcd50cb62615cedf612e72d1724fb1a0cc6405b378"},
-    {file = "py-1.11.0.tar.gz", hash = "sha256:51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"},
-]
-
-[[package]]
 name = "pytest"
-version = "6.2.5"
+version = "8.1.1"
 description = "pytest: simple powerful testing with Python"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.8"
 files = [
-    {file = "pytest-6.2.5-py3-none-any.whl", hash = "sha256:7310f8d27bc79ced999e760ca304d69f6ba6c6649c0b60fb0e04a4a77cacc134"},
-    {file = "pytest-6.2.5.tar.gz", hash = "sha256:131b36680866a76e6781d13f101efb86cf674ebb9762eb70d3082b6f29889e89"},
+    {file = "pytest-8.1.1-py3-none-any.whl", hash = "sha256:2a8386cfc11fa9d2c50ee7b2a57e7d898ef90470a7a34c4b949ff59662bb78b7"},
+    {file = "pytest-8.1.1.tar.gz", hash = "sha256:ac978141a75948948817d360297b7aae0fcb9d6ff6bc9ec6d514b85d5a65c044"},
 ]
 
 [package.dependencies]
-atomicwrites = {version = ">=1.0", markers = "sys_platform == \"win32\""}
-attrs = ">=19.2.0"
 colorama = {version = "*", markers = "sys_platform == \"win32\""}
+exceptiongroup = {version = ">=1.0.0rc8", markers = "python_version < \"3.11\""}
 iniconfig = "*"
 packaging = "*"
-pluggy = ">=0.12,<2.0"
-py = ">=1.8.2"
-toml = "*"
+pluggy = ">=1.4,<2.0"
+tomli = {version = ">=1", markers = "python_version < \"3.11\""}
 
 [package.extras]
-testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
+testing = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
 
 [[package]]
 name = "pytest-asyncio"
@@ -440,21 +399,21 @@ testing = ["coverage", "hypothesis (>=5.7.1)"]
 
 [[package]]
 name = "pytest-httpx"
-version = "0.24.0"
+version = "0.30.0"
 description = "Send responses to httpx."
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "pytest_httpx-0.24.0-py3-none-any.whl", hash = "sha256:193cecb57a005eb15288f68986f328d4c8d06c0b7c4ef1ce512e024cbb1d5961"},
-    {file = "pytest_httpx-0.24.0.tar.gz", hash = "sha256:259e6266cf3e04eb8fcc18dff262657ad96f6b8668dc2171fb353eaec5571889"},
+    {file = "pytest-httpx-0.30.0.tar.gz", hash = "sha256:755b8edca87c974dd4f3605c374fda11db84631de3d163b99c0df5807023a19a"},
+    {file = "pytest_httpx-0.30.0-py3-none-any.whl", hash = "sha256:6d47849691faf11d2532565d0c8e0e02b9f4ee730da31687feae315581d7520c"},
 ]
 
 [package.dependencies]
-httpx = "==0.24.*"
-pytest = ">=6.0,<8.0"
+httpx = "==0.27.*"
+pytest = ">=7,<9"
 
 [package.extras]
-testing = ["pytest-asyncio (==0.21.*)", "pytest-cov (==4.*)"]
+testing = ["pytest-asyncio (==0.23.*)", "pytest-cov (==4.*)"]
 
 [[package]]
 name = "sniffio"
@@ -465,17 +424,6 @@ python-versions = ">=3.7"
 files = [
     {file = "sniffio-1.3.1-py3-none-any.whl", hash = "sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2"},
     {file = "sniffio-1.3.1.tar.gz", hash = "sha256:f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc"},
-]
-
-[[package]]
-name = "toml"
-version = "0.10.2"
-description = "Python Library for Tom's Obvious, Minimal Language"
-optional = false
-python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
-files = [
-    {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
-    {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
 ]
 
 [[package]]
@@ -606,4 +554,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "7f56d446c125505a39ebd8259970cfd02b6f6dd63ad29b57319632c6f759107a"
+content-hash = "12fa9253cd84ed50ae22a43a07a26014b1b43442afd6515af4da17cee1b8606d"
