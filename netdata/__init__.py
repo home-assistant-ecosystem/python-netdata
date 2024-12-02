@@ -21,7 +21,7 @@ API_VERSION = 1
 class Netdata(object):
     """A class for handling connections with a Netdata instance."""
 
-    def __init__(self, host, port=19999, tls=None, path=None, timeout=5.0):
+    def __init__(self, host, port=19999, tls=None, path=None, timeout=5.0, httpx_client:httpx.AsyncClient=None):
         """Initialize the connection to the Netdata instance."""
         self.host = host
         self.port = port
@@ -38,12 +38,22 @@ class Netdata(object):
             self.base_url = URL.build(
                 scheme=self.scheme, host=host, port=port, path=path
             )
+        
+        if httpx_client is None:
+            self.client = httpx.AsyncClient()
+        else:
+            # This gives the possibility to use HomeAssistant implementation that has no blocking operation.
+            # See : https://developers.home-assistant.io/docs/asyncio_blocking_operations/#load_default_certs
+            self.client = httpx_client
+
+    async def close(self):
+        """Close the client session."""
+        await self.client.aclose()
 
     async def get_data(self, url) -> Dict:
         """Execute a request to a data endpoint."""
         try:
-            async with httpx.AsyncClient() as client:
-                response = await client.get(str(url), timeout = self.timeout)
+            response = await self.client.get(str(url), timeout = self.timeout)
         except httpx.TimeoutException:
             raise
         except httpx.TransportError:

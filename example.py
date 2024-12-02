@@ -28,6 +28,7 @@ async def main():
     await client.get_allmetrics()
     print(client.metrics)
 
+    await client.close()
 
 if __name__ == "__main__":
     asyncio.run(main())
