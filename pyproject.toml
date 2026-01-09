@@ -16,14 +16,14 @@ classifiers = [
     "Operating System :: POSIX",
     "Topic :: Utilities",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Home Automation"
 ]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
 httpx = ">=0.26,<1"
 yarl = "^1.8.0"
 
