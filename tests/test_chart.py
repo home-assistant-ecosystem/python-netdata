@@ -2,7 +2,7 @@
 import pytest
 from pytest_httpx import HTTPXMock
 
-from netdata import Netdata, exceptions
+from netdata import Netdata
 
 RESPONSE_VALID = {
     "labels": [
