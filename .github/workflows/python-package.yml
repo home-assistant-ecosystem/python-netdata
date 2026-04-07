@@ -44,6 +44,11 @@ jobs:
     - name: Install library
       run: poetry install --no-interaction
 
+    - name: Lint with ruff
+      run: |
+        pip install ruff
+        ruff check .
+
     - name: Run tests
       run: |
         source .venv/bin/activate
