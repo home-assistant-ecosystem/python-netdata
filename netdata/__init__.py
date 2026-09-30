@@ -21,7 +21,7 @@ API_VERSION = 1
 class Netdata(object):
     """A class for handling connections with a Netdata instance."""
 
-    def __init__(self, host, port=19999, tls=None, path=None, timeout=5.0, httpx_client:httpx.AsyncClient=None):
+    def __init__(self, host, port=19999, tls=None, node=None, path=None, timeout=5.0, httpx_client:httpx.AsyncClient=None):
         """Initialize the connection to the Netdata instance."""
         self.host = host
         self.port = port
@@ -31,9 +31,14 @@ class Netdata(object):
         self.scheme = "http" if tls is None or not False else "https"
 
         if path is None:
-            self.base_url = URL.build(
-                scheme=self.scheme, host=host, port=port, path=f"/api/v{API_VERSION}/"
-            )
+            if node is None:
+                self.base_url = URL.build(
+                    scheme=self.scheme, host=host, port=port, path=f"/api/v{API_VERSION}/"
+                )
+            else:
+                self.base_url = URL.build(
+                    scheme=self.scheme, host=host, port=port, path=f"/host/{node}/api/v{API_VERSION}/"
+                )
         else:
             self.base_url = URL.build(
                 scheme=self.scheme, host=host, port=port, path=path
